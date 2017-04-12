@@ -11,6 +11,11 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd">
       
-       <bean id="dd" class="com.book.controller.TestClass"/>
+       <!-- springmvc的注解驱动 -->
+<!--        <mvc:annotation-driven/> -->
+       
+       <!-- 指定扫描 base-package下面的包 -->
+<!--        <context:component-scan base-package="com.*"/> -->
+<!--        <bean id="dd" class="com.book.controller.TestClass"/> -->
        
 </beans>

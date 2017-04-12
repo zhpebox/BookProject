@@ -9,18 +9,16 @@
  	<!-- 指定加载路径 -->
  	<context-param>
  		<param-name>contextConfigLocation</param-name>
- 		<param-value>classpath:conf/*.xml</param-value>
+ 		<param-value>classpath:conf/spring-*.xml</param-value>
  	</context-param>
 
-	<!-- class DispatcherServlet会自动扫描classpath下面的名字为<servlet-name>-servlet.xml的配置文件， 
-		在这里，因为我servlet-name配置 的是springmvc，所以扫描到的就是springmvc-servlet,
-		!!!本次配置采用conf下的配置文件，方便管理,须在servlet中指定目录 -->
+	
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
- 			<param-value>classpath:conf/*.xml</param-value>
+ 			<param-value>classpath:conf/spring.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
@@ -67,5 +65,17 @@
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+    
+    <session-config>
+		<session-timeout>150000</session-timeout>
+	</session-config>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/pages/error/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error/500.jsp</location>
+	</error-page>
 
 </web-app>

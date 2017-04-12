@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	public UserController(){
+		System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+	}
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
