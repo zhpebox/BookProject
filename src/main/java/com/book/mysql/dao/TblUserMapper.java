@@ -2,8 +2,11 @@ package com.book.mysql.dao;
 
 import com.book.mysql.model.TblUser;
 import com.book.mysql.model.TblUserExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 public interface TblUserMapper {
     int countByExample(TblUserExample example);

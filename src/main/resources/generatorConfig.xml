@@ -28,7 +28,7 @@
 			<property name="trimStrings" value="true" /> <!-- 是否针对string类型的字段在set的时候进行trim调用 -->
 		</javaModelGenerator>
 
-		<sqlMapGenerator targetPackage="com.book.mysql.mapper"
+		<sqlMapGenerator targetPackage="sqlmap.mapper"
 			targetProject="D:/TestMotan/BookProject/src/main/resources">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
