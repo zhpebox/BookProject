@@ -13,7 +13,7 @@ import static org.quartz.SimpleScheduleBuilder.*;
 
   public class QuartzTest {
 
-	  @Test
+//	  @Test
       public void main() {
 
           try {
