@@ -20,7 +20,7 @@ public class DemoJob implements Job {
 
 	public void execute() {
 
-		System.out.println("CCCCCCCCCCCCCCCCCCCCCCCe:" + num++);
+		System.out.println("执行定时任务:" + num++);
 
 	}
 
