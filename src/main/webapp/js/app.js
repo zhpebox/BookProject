@@ -90,7 +90,53 @@ var appe = new Vue({
 	data:{
 		mw:'33'
 	}
+//	methods:{
+//		send:function(){
+//			var vm = this
+//			vm.$http.get(vm.apiUrl)
+//				.then((response) => {
+//					vm.$set('gridData', response.data)
+//				})
+//		}
+//	}
 })
+
+Vue.component('yy',{
+	props:['user'],
+	template:'<li>{{user.name}} {{user.age}}</li>'
+})
+
+var appz = new Vue({
+	el:'#appz',
+	data:{
+		listy:[
+		       	{name:'zj',age:12},
+		       	{name:'zw',age:13},
+		       	{name:'zr',age:14}
+		       ]
+	}
+})
+
+var appCall = new Vue({
+	el:'#appCall',
+	data:{
+		backMessage:'-----'
+	},
+	methods:{
+		getMessage : function(){
+			// GET /someUrl
+			  this.$http.get('/BookProject/user/getUsers').then(response => {
+
+			    // get body data
+			    this.backMessage = response.body;
+
+			  }, response => {
+			    // error callback
+				  console.log("反馈出现问题！");
+			  });
+		}
+	}
+});
 
 
 
