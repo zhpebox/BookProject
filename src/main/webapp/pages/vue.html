@@ -79,9 +79,18 @@
 			</ol>
 		</div>
 		
-		<div id="appCall">
-			<button v-on:click="getMessage" >send</button>
-			收到：{{backMessage}}
+		<div id="appCalls">
+			<button v-on:click="getMessage" >getMessage</button>
+			<button v-on:click="getUser" >getUser</button>
+			<ol>
+				<nn v-for="item in backMessage" v-bind:user="item"/>
+			</ol>
+			
+			id:<input type="text" v-model="mo.uid"/><br/>
+			name:<input type="text" v-model="mo.uname"/><br/>
+			pass:<input type="text" v-model="mo.upass"/><br/>
+			<input type="button" v-on:click="subUser" value="submit"/><br/>
+			<input type="button" v-on:click="subUserPUT" value="submit"/><br/>
 		</div>
 		
 		

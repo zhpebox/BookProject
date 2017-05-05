@@ -29,7 +29,7 @@
 	<bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="jobDetail" />
 		<!--表达式，我的是每 30 执行一次 -->
-		<property name="cronExpression" value="0/15/30/45 * * * * ?" />
+		<property name="cronExpression" value="0 0 12 * * ?" />
 	</bean>
 
 	<!-- 总管理类如果将lazy-init='false'那么容器启动就会执行调度程序 -->

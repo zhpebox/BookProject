@@ -19,4 +19,10 @@ public class UserServiceImpl implements UserService{
 		return reuslt;
 	}
 
+	@Override
+	public int insertUsers(TblUser user) {
+		int result = tblUserMapper.insert(user);
+		return result;
+	}
+
 }

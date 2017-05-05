@@ -5,4 +5,6 @@ import com.book.mysql.model.TblUser;
 public interface UserService {
 
 	public int registerUser(TblUser user);
+	
+	public int insertUsers(TblUser user);
 }

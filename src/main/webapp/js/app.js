@@ -9,7 +9,7 @@ var app2 = new Vue({
 	  el: '#app-2',
 	  data: {
 	    message: '页面加载于 ' + new Date()
-//		mess: 'time out out'
+// mess: 'time out out'
 	  }
 	})
 
@@ -90,15 +90,15 @@ var appe = new Vue({
 	data:{
 		mw:'33'
 	}
-//	methods:{
-//		send:function(){
-//			var vm = this
-//			vm.$http.get(vm.apiUrl)
-//				.then((response) => {
-//					vm.$set('gridData', response.data)
-//				})
-//		}
-//	}
+// methods:{
+// send:function(){
+// var vm = this
+// vm.$http.get(vm.apiUrl)
+// .then((response) => {
+// vm.$set('gridData', response.data)
+// })
+// }
+// }
 })
 
 Vue.component('yy',{
@@ -117,26 +117,74 @@ var appz = new Vue({
 	}
 })
 
+Vue.component('nn',{
+	props:['user'],
+	template:'<li>{{user.uid}}  {{user.uname}} {{user.upass}}</li>'
+})
+
+
+
 var appCall = new Vue({
-	el:'#appCall',
+	el:'#appCalls',
 	data:{
-		backMessage:'-----'
+		backMessage:'',
+		mo:{uid:'12',uname:'hello',upass:123455}
 	},
 	methods:{
 		getMessage : function(){
 			// GET /someUrl
-			  this.$http.get('/BookProject/user/getUsers').then(response => {
-
+			  this.$http.get('/BookProject/user/getUsers/3').then(response => {
 			    // get body data
-			    this.backMessage = response.body;
-
+				  this.backMessage = response.body
 			  }, response => {
 			    // error callback
 				  console.log("反馈出现问题！");
 			  });
+		},
+		getUser:function(){
+			this.$http({
+				 method:'GET',
+		            url:'/BookProject/user/getUsers',
+		            params :{'uid':1}
+			}).then(response => {
+			    this.backMessage = response.body
+			  }, response => {
+				  console.log("反馈出现问题！");
+			  });
+		},
+		subUser:function(){
+			console.log(JSON.stringify(this.mo))
+			this.$http({
+					method:'POST',
+					url:'/BookProject/user/addUsers',
+					body:{'mo':JSON.stringify(this.mo)},
+					emulateJSON:true, //允许body带接送传输
+					headers: {
+						dataType:"json", 
+						contentType:"application/json"
+                  }
+			}).then(response => {
+			    this.backMessage = response.body
+			  }, response => {
+				  console.log("反馈出现问题！");
+			  });
+		},
+		subUserPUT:function(){
+			this.$http({
+				method:'PUT',
+				url:'/BookProject/user/addUsers',
+				body:{'mo':JSON.stringify(this.mo)},
+				emulateJSON:true, //允许body带接送传输
+				headers: {
+					dataType:"json", 
+					contentType:"application/json"
+              }
+			}).then(response => {this.backMessage = response.body},
+					response => {console.log("反馈出现问题！");
+					});
 		}
 	}
 });
 
-
+// data:{'websiteId':websiteid,'pageSize':pagesize,'pageNo':pageno,'isTop':0}
 
