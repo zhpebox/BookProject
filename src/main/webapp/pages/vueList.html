@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>vueList</title>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Book</h2><br/>
+		
+		
+		<!-- add div -->
+		<div id="add">
+			<div>{{book}}</div>
+			bookName:<input type="text" v-model="book.name" debounce="5000"><br/>
+			secondname:<input type="text" v-model="book.secondName"><br/>
+			years:<select v-model="book.years">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				  </select><br/>
+			isExist:
+				<input type="radio" name="isExist"  v-model="book.isExist" value="Y">Y
+				<input type="radio" name="isExist" v-model="book.isExist" value="N">N<br/>
+			isCheck:
+				<input type="checkbox" name="isCheck1" v-model="book.isCheck" value="通过检测1">检测1<br/>
+				<input type="checkbox" name="isCheck2" v-model="book.isCheck" value="通过检测2">检测2<br/>
+				 {{book.isCheck ? "yesAAA" : "noAAA"}}
+				
+				<input type="button" value="提交"/>
+			{{myOptions}}
+<!-- 			<select v-model="selected" options="myOptions"> -->
+<!-- 				<option value="2">2</option> -->
+<!-- 					<option value="3">3</option> -->
+<!-- 			</select> -->
+<select v-model="selected" id="text"> 
+        <option v-for="option in myOptions"> {{option.text}} </option>
+    </select>
+<!-- 			myOptions1<select v-model="book.sel1" options="myOptions1"> -->
+<!-- 			</select> -->
+			
+<!-- 			myOptions2<select v-model="book.sel2"  options="myOptions2"> -->
+<!-- 			</select> -->
+							
+		</div>
+	</div>
+	<script src='https://unpkg.com/vue@2.0.5/dist/vue.js'></script>
+	<script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+	<script src="../js/appList.js"></script>
+</body>
+</html>
+

@@ -122,13 +122,20 @@ Vue.component('nn',{
 	template:'<li>{{user.uid}}  {{user.uname}} {{user.upass}}</li>'
 })
 
-
+Vue.component('qq',{
+	props:['userr'],
+	template:'<option>{{userr.uname}}</option>'
+})
 
 var appCall = new Vue({
 	el:'#appCalls',
 	data:{
 		backMessage:'',
-		mo:{uid:'12',uname:'hello',upass:123455}
+		mo:{uid:'12',uname:'hello',upass:123455},
+		sids:1,
+		slecteds:3,
+		checkStr:5,
+		checkboxModel:7
 	},
 	methods:{
 		getMessage : function(){
@@ -182,6 +189,9 @@ var appCall = new Vue({
 			}).then(response => {this.backMessage = response.body},
 					response => {console.log("反馈出现问题！");
 					});
+		},
+		getSelect:function(){
+			console.log(this.slecteds);
 		}
 	}
 });

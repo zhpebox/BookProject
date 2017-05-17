@@ -90,12 +90,25 @@
 			name:<input type="text" v-model="mo.uname"/><br/>
 			pass:<input type="text" v-model="mo.upass"/><br/>
 			<input type="button" v-on:click="subUser" value="submit"/><br/>
-			<input type="button" v-on:click="subUserPUT" value="submit"/><br/>
+			<input type="button" v-on:click="subUserPUT" value="subUserPUT"/><br/>
+			<select v-model="slecteds">
+				<option v-for="item in backMessage" v-bind:value="item.uid"/>{{item.uname}}
+			</select>
+<!-- 			<input type="button" v-on:click="subUserDel" value="subDel"/> -->
+			<input type="button" v-on:click="getUser" value="getUser"/><br/>
+			<span>Selected: {{ slecteds }}</span>  
+			
+			<input type="checkbox" v-model="checkStr" v-for="item in backMessage" v-bind:value="item.uid">item.uname<br/>
+			<span>checked: {{checkStr}}</span> 
+			
+			 <template v-for='item in backMessage'>
+		         <input type='checkbox'   v-model='checkboxModel' value='item.uid'>{{item.uname}}
+		      </template>
 		</div>
 		
 		
 	</div>
-
+	<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 
 	<script src='https://unpkg.com/vue@2.0.5/dist/vue.js'></script>
